@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:menu_admin_sge_totem/src/features/home/view/components/custom_line_dash.dart';
+import 'package:menu_admin_sge_totem/src/features/home/view/components/custom_line_dash_widget.dart';
 
 class SalesTab extends StatefulWidget {
   const SalesTab({Key? key}) : super(key: key);
@@ -16,6 +16,8 @@ class _SalesTabState extends State<SalesTab> {
     '09/04',
     '08/04',
     '07/04',
+    '06/04',
+    '05/04',
   ];
 
   String? selectedItem = '11/04';
@@ -55,8 +57,7 @@ class _SalesTabState extends State<SalesTab> {
                 width: 108,
               ),
               DropdownButton<String>(
-                // focusColor: Colors.blue,
-                dropdownColor: Colors.blue,
+                dropdownColor: const Color.fromRGBO(55, 80, 255, 1),
                 value: selectedItem,
                 items: items
                     .map((item) => DropdownMenuItem<String>(
@@ -104,12 +105,12 @@ class _SalesTabState extends State<SalesTab> {
         // const Divider(
         //   height: 18,
         // ),
-        const CustomLineDash(),
+        const CustomLineDashWidget(),
         ListView.separated(
           shrinkWrap: true,
           itemCount: 2,
           separatorBuilder: (BuildContext context, int index) =>
-              const CustomLineDash(),
+              const CustomLineDashWidget(),
           itemBuilder: (BuildContext context, int index) {
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 20),
@@ -131,13 +132,16 @@ class _SalesTabState extends State<SalesTab> {
                       style: productDetailsStyle,
                     ),
                   ),
+                  const SizedBox(
+                    width: 30,
+                  ),
                   Expanded(
                     flex: 4,
                     child: Container(
                       width: 22,
                       height: 22,
                       decoration: const BoxDecoration(
-                        color: Color(0xFF3AC148), //const Color(0xAARRGGBB)`
+                        color: Color(0xFF3AC148),
                         shape: BoxShape.circle,
                       ),
                     ),
@@ -145,7 +149,7 @@ class _SalesTabState extends State<SalesTab> {
                   Padding(
                     padding: const EdgeInsets.only(right: 30),
                     child: InkWell(
-                      onTap: () {},
+                      onTap: () {}, // aparece a nota e faz-se a impressão!
                       child: const FaIcon(FontAwesomeIcons.print),
                     ),
                   ),
@@ -185,7 +189,7 @@ class _SalesTabState extends State<SalesTab> {
                   child: const Icon(
                     Icons.arrow_back,
                     size: 55,
-                    color: Colors.blue,
+                    color: Color.fromRGBO(55, 80, 255, 1),
                   ),
                 ),
               ),
