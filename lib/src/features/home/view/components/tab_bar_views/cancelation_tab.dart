@@ -17,6 +17,7 @@ class CancelationTab extends StatelessWidget {
       fontSize: 20,
       fontWeight: FontWeight.w500,
     );
+    // List<String> titles = ['Item', 'Quantidade', 'Custo', 'Total'];
     return Column(
       children: [
         Padding(
@@ -42,6 +43,21 @@ class CancelationTab extends StatelessWidget {
             SizedBox(
               width: 174,
             ),
+            // SizedBox(
+            //   height: 30,
+            //   width: double.maxFinite - 2,
+            //   child: ListView.builder(
+            //     scrollDirection: Axis.vertical,
+            //     // shrinkWrap: true,
+            //     itemCount: titles.length,
+            //     itemBuilder: (context, int index) => Expanded(
+            //       child: Text(
+            //         titles[index],
+            //         style: columnNameStyle,
+            //       ),
+            //     ),
+            //   ),
+            // ),
             Expanded(
               child: Text(
                 'Item',
@@ -67,6 +83,9 @@ class CancelationTab extends StatelessWidget {
               ),
             ),
           ],
+        ),
+        const SizedBox(
+          height: 10,
         ),
         const CustomLineDashWidget(),
         ListView.separated(
@@ -166,9 +185,7 @@ _onAlertItemCancellation(context) {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: size.width * 0.0065),
                 child: InkWell(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
+                  onTap: () => Navigator.pop(context),
                   child: Text(
                     'Cancelar',
                     style: Theme.of(context).textTheme.button!.copyWith(
@@ -181,7 +198,7 @@ _onAlertItemCancellation(context) {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: size.width * 0.0065),
                 child: InkWell(
-                  onTap: () {}, // diminui uma quantidade
+                  onTap: () {}, // diminui uma unidade
                   child: Text(
                     'Confirmar',
                     style: Theme.of(context).textTheme.button!.copyWith(

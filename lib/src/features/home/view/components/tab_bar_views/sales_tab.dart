@@ -20,10 +20,11 @@ class _SalesTabState extends State<SalesTab> {
     '05/04',
   ];
 
-  String? selectedItem = '11/04';
+  String? selectedItem = '11/04' ;
 
   @override
   Widget build(BuildContext context) {
+
     const TextStyle columnNameStyle = TextStyle(
       color: Colors.grey,
       fontSize: 25,
@@ -43,7 +44,7 @@ class _SalesTabState extends State<SalesTab> {
                 width: 108,
               ),
               Text(
-                'Vendas', // colocar data aqui? (de acordo com o dropdown)
+                'Vendas',
                 style: TextStyle(fontSize: 30),
               ),
             ],
@@ -102,9 +103,9 @@ class _SalesTabState extends State<SalesTab> {
             ),
           ],
         ),
-        // const Divider(
-        //   height: 18,
-        // ),
+        const SizedBox(
+          height: 10,
+        ),
         const CustomLineDashWidget(),
         ListView.separated(
           shrinkWrap: true,
@@ -160,19 +161,16 @@ class _SalesTabState extends State<SalesTab> {
         ),
         const Expanded(
           child: SizedBox(),
-          // flex: 4,
         ),
         Padding(
           padding: const EdgeInsets.only(bottom: 70, left: 77),
           child: Row(
-            // mainAxisAlignment: MainAxisAlignment.center,
             children: [
               InkWell(
                 onTap: () {},
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    // border: BorderRadius.circular(20),
                     borderRadius: BorderRadius.circular(30),
                     boxShadow: [
                       BoxShadow(

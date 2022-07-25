@@ -25,7 +25,6 @@ class CloseCashierTab extends StatelessWidget {
             SizedBox(
               width: 362,
               child: TextField(
-                // readOnly: true,
                 enabled: false,
                 decoration: InputDecoration(
                   hoverColor: Colors.black,
@@ -72,7 +71,6 @@ class CloseCashierTab extends StatelessWidget {
             SizedBox(
               width: 362,
               child: TextField(
-                // readOnly: true,
                 enabled: false,
                 decoration: InputDecoration(
                   hoverColor: Colors.black,
@@ -138,7 +136,7 @@ class CloseCashierTab extends StatelessWidget {
     );
   }
 
-  _criarLinhaTable(String formsPayment) {
+  _criarLinhaTable(String formsPayment) { // refatorar isto aq!
     // formas de pagamento, valores
     return TableRow(
       children: formsPayment.split('|').map((name) {

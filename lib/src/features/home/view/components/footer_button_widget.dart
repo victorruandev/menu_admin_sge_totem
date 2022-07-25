@@ -30,7 +30,7 @@ class FooterButtonWidget extends StatelessWidget {
                     ),
                     blurRadius: 4.0,
                     spreadRadius: 1.0,
-                  ), //BoxShadow
+                  ),
                 ],
               ),
               child: const Icon(
@@ -41,6 +41,7 @@ class FooterButtonWidget extends StatelessWidget {
             ),
           ),
           SizedBox(width: size.width * 0.3156),
+          // se o estado(ou index == 1) for de vendas: SizedBox();
           InkWell(
             onTap: onTap,
             child: Container(
@@ -57,7 +58,7 @@ class FooterButtonWidget extends StatelessWidget {
                     blurRadius: 4.0,
                     spreadRadius: 1.0,
                     blurStyle: BlurStyle.inner,
-                  ), //BoxShadow
+                  ),
                 ],
               ),
               child: SizedBox(
