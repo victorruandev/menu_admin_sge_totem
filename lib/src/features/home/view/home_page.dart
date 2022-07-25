@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:menu_admin_sge_totem/src/features/home/view/components/tab_bar_views/cancelation_tab.dart';
 import 'package:menu_admin_sge_totem/src/features/home/view/components/tab_bar_views/close_cashier_tab.dart';
@@ -17,41 +16,36 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
-  late Radius borderRight;
-  late Radius borderLeft;
   @override
   void initState() {
     super.initState();
-    borderRight = const Radius.elliptical(0, 0);
-    borderLeft = const Radius.elliptical(0, 0);
   }
 
   @override
   Widget build(BuildContext context) {
     Color appBarColor = const Color.fromRGBO(55, 80, 255, 1);
     TabController controller = TabController(vsync: this, length: 4);
-    // int controllerIndex = controller.index;
     TextStyle labelTabStyle = const TextStyle(fontSize: 23, letterSpacing: 0.8);
 
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        foregroundColor: Colors.red,
         elevation: 0,
         backgroundColor: appBarColor,
         toolbarHeight: 0,
         bottom: TabBar(
+          // indicatorSize: 1
+          indicatorWeight: 0,
           isScrollable: false,
           physics: const NeverScrollableScrollPhysics(),
           labelColor: Colors.black,
+          labelPadding: const EdgeInsets.all(0),
           unselectedLabelColor: Colors.white,
-          indicator: BoxDecoration(
-            borderRadius: BorderRadius.only(
-              bottomRight: borderRight,
-              bottomLeft: borderLeft,
-            ),
-            color: Colors.white,
-            // color: controller.index == 3 ? Colors.red : Colors.white,
+          indicator: const BoxDecoration(
+            // shape: BoxShape.rectangle,
+            // backgroundBlendMode: BlendMode,
+            borderRadius: BorderRadius.all(Radius.zero),
+            color: Colors.white, //
             // color: controller.index == 3 ? Colors.red : Colors.white,
           ),
           onTap: (controllerIndex) {
@@ -59,7 +53,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               debugPrint(
                   'mudando cor para cancelamento fechar caixa: $controllerIndex');
             } else if (controllerIndex == 1) {
-              borderLeft = Radius.zero;
               debugPrint('mudando cor para vendas: $controllerIndex');
             } else if (controllerIndex == 2) {
               debugPrint('mudando cor para fechar caixa: $controllerIndex');
@@ -74,6 +67,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           controller: controller,
           tabs: [
             Tab(
+              iconMargin: EdgeInsets.zero,
               child: Container(
                 // width: 66,
                 // height: 32,
@@ -90,6 +84,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ),
             ),
             Tab(
+              iconMargin: EdgeInsets.zero,
               child: Container(
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -103,6 +98,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ),
             ),
             Tab(
+              iconMargin: EdgeInsets.zero,
               child: Container(
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -118,10 +114,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             InkWell(
               onTap: () => _onAlertGoOut(context),
               child: Tab(
-                iconMargin: EdgeInsets.zero,
+                // iconMargin: EdgeInsets.zero,
+                // iconMargin: EdgeInsets.zero,
                 child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height,
+                  // width: double.maxFinite,
+                  // height: double.maxFinite,
                   decoration: const BoxDecoration(
                     color: Colors.red,
                     // shape: BoxShape.rectangle,
@@ -182,8 +179,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     child: InkWell(
                       onTap: () {
                         Navigator.pop(context);
-                        // Navigator.pop(context);
-                      },
+                       },
                       child: Text(
                         'Cancelar',
                         style: Theme.of(context).textTheme.button!.copyWith(
@@ -220,3 +216,32 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     ).show();
   }
 }
+
+// _showCupertinoDialog(context) {
+//   // context: context,
+//   // builder:
+//   (context) {
+//     return CupertinoAlertDialog(
+//       title: const Text('Sair'),
+//       content: const Text('Deseja sair da aplicação?'),
+//       actions: [
+//         CupertinoDialogAction(
+//           child: const Text('Cancelar'),
+//           onPressed: () {
+//             // dismiss dialog
+//             Navigator.of(context).pop();
+//             // _tabController.index = 0;
+//           },
+//         ),
+//         CupertinoDialogAction(
+//           child: const Text('Confirmar'),
+//           onPressed: () {
+//             // dismiss dialog
+//             Navigator.of(context).pop();
+//             // _tabController.index = 0;
+//           },
+//         ),
+//       ],
+//     );
+//   };
+// }
